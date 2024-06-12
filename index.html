@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencia de viagens</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="estilo/style.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <p>JE Viagens</p>
+           <ul>
+            <a href="#home">
+                <li>Home</li>
+            </a>
+            <a href="#pacotes">
+                <li>Pacotes</li>
+            </a>
+            <a href="#servicos">
+                <li>Serviços</li>
+            </a>
+            <a href="#contato">
+                <li>Contatos</li>
+            </a>
+           </ul>
+        </nav>
+
+        <div id="home" class="header-content">
+            <h1>JE <span style="color:#296d98">Viagens</span></h1>
+            <p>Hotel,Passagem e <bolder style="color:#296d98">tudo para sua Viagem</bolder>!</p>
+            <button>saiba mais</button>
+
+        </div>
+    </header>
+
+    <section id="pacotes" class="pacotes">
+        <h1 class="pacotes-title">Conheça nossos pacotes de viagens</h1>
+ <div class="pacotes-cards">
+    <div class="card">
+            <div class="card-tag card-tag-top">
+                <p>Promoção</p>
+            </div>
+
+            <div class="card-tag card-tag-bottom">
+                <p>R$ 1500,00</p>
+            </div>
+            <img class="card-image"  src="../projeto-viagens/imagens/miami02.jpg">
+                <div class="card-content">
+                <h1>Pacote 5 noites Hotel Premium</h1>
+                <ul>
+                    <li> <i data-feather="coffee"></i>Café da manhã incluso</li>
+                    <li> <i data-feather="wifi"></i>Wifi</li>
+                    <li> <i data-feather="briefcase"></i>Pet Friendly</li>
+                </ul>
+            </div>
+    </div>
+
+   <div class="card">
+
+    <div class="card-tag card-tag-bottom">
+        <p>R$ 2000,00</p>
+    </div>
+    <img class="card-image"  src="../projeto-viagens/imagens/russia.jpg">
+        <div class="card-content">
+        <h1>Pacote 4 dias na Russia!</h1>
+        <ul>
+            <li> <i data-feather="coffee"></i>Café da manhã incluso</li>
+            <li> <i data-feather="wifi"></i>Wifi</li>
+            <li> <i data-feather="briefcase"></i>Pet Friendly</li>
+        </ul>
+    </div>
+  </div>
+
+      <div class="card">
+        <div class="card-tag card-tag-top">
+            <p>Promoção</p>
+        </div>
+
+        <div class="card-tag card-tag-bottom">
+            <p>R$ 500,00</p>
+        </div>
+        <img class="card-image"  src="../projeto-viagens/imagens/rio grande do sul.jpg">
+            <div class="card-content">
+            <h1>Cachoeira do Itaimbezinho</h1>
+            <ul>
+                <li> <i data-feather="coffee"></i>Café da manhã incluso</li>
+                <li> <i data-feather="wifi"></i>Wifi</li>
+                <li> <i data-feather="briefcase"></i>Pet Friendly</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+    <section id="servicos" class="servicos">
+        <h1 class="servicos-title">Serviços</h1>
+        <div class="servicos-cards">
+        <div class="card">
+            <i data-feather="map"></i>
+            <div class="card-content">
+            <h3>Tours guiados</h3>
+            <p>Os tours guiados são passeios que são realizados com auxílio de um guia, que além de dar informações sobre o local e vai nos conduzir ao longo do trajeto</p>
+          </div>
+          <button>Saiba mais</button>
+        </div>
+
+        <div class="card">
+            <i data-feather="camera"></i>
+            <div class="card-content">
+            <h3>Fotografia profissional</h3>
+            <p>Nossos fotógrafos estão acostumados a registrar os melhores momentos das viagens para que você aproveite a paisagem sem se preocupar</p>
+            </div>
+            <button>Saiba mais</button>
+        </div>
+
+        <div class="card">
+            <i data-feather="navigation"></i>
+            <div class="card-content">
+            <h3>Aluguel de veículo</h3>
+            <p>Para os clientes que preferem explorar o ambiente sozinhos e curtem a liberdade, oferecemos o serviço de aluguel de veículos com preços super em conta</p>
+             </div>
+             <button>Saiba mais</button>
+        </div>
+    </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="contato-card">
+            <h1>Entre em contato</h1>
+            <ul>
+                <li><i data-feather="navigation"></i>Av.Senador Carlos-Fortaleza AER</li>
+                <li><i data-feather="navigation"></i>contato@JEviagens.com.br</li>
+                <li><i data-feather="navigation"></i>(55) 99999-9999</li>
+            </ul>
+        </div>
+        <div id="map"></div>
+    </section>
+
+    <script>
+        feather.replace();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function initMap() {
+            // The location of Uluru
+            var uluru = { 
+                lat: -19.924108, 
+                lng: -43.943470
+            };
+
+             // The map, centered at Uluru
+             var map = new google.maps.Map(
+                document.getElementById('map'), {
+                    zoom: 15, 
+                    center: uluru
+
+             });
+             //The marker, positioned at uluru 
+             var marker = new google.maps.Marker({position: uluru, map: map
+
+             });
+        }
+        
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+</body>
+</html>
